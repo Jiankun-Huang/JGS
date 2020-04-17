@@ -1,0 +1,29 @@
+{% extends "_base_layout.html" %}
+
+{% block body %}
+    <app>
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+                <div class="page-header text-center">
+                    <h1>
+                        weiqi.gs
+                        <br><br>
+                        <small>Open-source server for the game of Go, also known as weiqi (围棋) or baduk (바둑).</small>
+                    </h1>
+                </div>
+            </div>
+        </div>
+        <br><br>
+        <p class="text-center">
+            <i class="fa fa-spinner fa-5x fa-spin"></i>
+        </p>
+    </app>
+
+    <script>
+        window.SETTINGS = {% raw json_encode(settings) %};
+    </script>
+    <script src="{{ static_url("js/vendor/wgo.min.js") }}"></script>
+    <script src="{{ static_url("dist/vendor.js") }}"></script>
+    <script src="{{ static_url("dist/app.js") }}"></script>
+    <script src='https://www.google.com/recaptcha/api.js?onload=recaptchaOnload&render=explicit' async defer></script>
+{% end %}

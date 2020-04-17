@@ -1,0 +1,93 @@
+.room-page {
+  .room-logs, .room-users {
+    height: $main-height;
+    margin-bottom: 0;
+  }
+}
+
+.room-logs {
+  position: relative;
+  overflow: hidden;
+
+  .panel-body {
+    padding: 5px 20px 5px 10px;
+  }
+
+  .item {
+    @include clearfix();
+    margin-bottom: 20px;
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      float: left;
+    }
+
+    .message {
+      margin-left: 50px;
+      margin-bottom: 0;
+
+      .name {
+        display: block;
+        font-weight: 600;
+
+        .dropdown {
+          display: inline-block;
+        }
+      }
+    }
+
+    &.item-narrow {
+      @media (min-width: $screen-sm-min) and (max-width: $screen-md-max) {
+        margin-bottom: 10px;
+
+        .avatar {
+          display: none;
+        }
+
+        .message {
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
+
+.room-logs .message .coord {
+  color: $link-color;
+  cursor: pointer;
+}
+
+.room-logs-users-toggle {
+  cursor: pointer;
+}
+
+.room-logs-users {
+  position: absolute;
+  top: 37px;
+  bottom: 54px;
+  left: 100%;
+  right: -75%;
+
+  padding-left: 5px;
+
+  overflow: auto;
+  transition: all $transition-speed $transition-fn;
+
+  .room-users {
+    height: 100%;
+    margin-bottom: 0;
+    box-shadow: -1px 1px 3px #ccc;
+  }
+}
+
+.room-logs-users-visible {
+  > .panel-body {
+    overflow: hidden;
+  }
+
+  .room-logs-users {
+    left: 25%;
+    right: 0;
+  }
+}
